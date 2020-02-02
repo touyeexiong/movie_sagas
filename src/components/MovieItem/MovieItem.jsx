@@ -5,7 +5,13 @@ class MovieItem extends Component {
 
     handleDes = (event) => {
         console.log('clicked on poster!');
-
+        this.getDetails();
+    }
+    getDetails = () =>{
+        this.props.dispatch({
+            type: 'GET_DETAILS',
+            payload: this.props.movie.id
+        })
     }
     render () {
 
