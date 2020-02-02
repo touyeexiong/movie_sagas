@@ -24,8 +24,10 @@ function* rootSaga() {
 function* getList(action) {
     try {
         let response = yield axios.get('/list')
-        console.log(response.data);
-        
+        console.log('is there data here?', response.data);
+        yield put ({
+        type: `SET_MOVIES`,
+        payload: response.data})
     } catch(err) {
         console.log(err);
         

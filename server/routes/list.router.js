@@ -6,11 +6,10 @@ const router = express.Router();
 // return all movies and details
 router.get('/', (req,res) => {
     const queryText = 'SELECT * FROM "movies";'
-    console.log('in movies', req.body);
     pool.query(queryText)
     .then((result) => {
         console.log(result.rows);
-        res.send(result.row);
+        res.send(result.rows);
         
     })
     .catch((err) => {

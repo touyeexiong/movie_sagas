@@ -12,6 +12,7 @@ app.use(express.static('build'));
 
 /** ---------- ROUTES ---------- **/
 app.use('/list', listRouter);
+// app.use('/list',)
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {
