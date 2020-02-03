@@ -19,10 +19,10 @@ function* rootSaga() {
     yield takeEvery('GET_DETAILS', getDetails )
 }
 
-function* getDetails(acction) {
+function* getDetails(action) {
     try {
-        let response = yield axios.get(`/details`)
-        console.log('what does this look like?', response.data);
+        console.log('what does this look like?', action.payload);
+        let response = yield axios.get(`/details?id=${action.payload}`)
         yield put({
             type: `SET_DETAILS`,
             payload: response.data
@@ -36,7 +36,7 @@ function* getDetails(acction) {
 
 function* getList(action) {
     try {
-        let response = yield axios.get('/list')
+        let response = yield axios.get(`/list`)
         console.log('is there data here?', response.data);
         yield put ({
         type: `SET_MOVIES`,

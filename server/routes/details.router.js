@@ -4,10 +4,13 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 // return all movies and details
-router.get('/$1', (req, res) => {
+router.get('/', (req, res) => {
+    let query =req.query.id;
+    console.log('this the info we getting',req.query);
+    
     const queryText = `
     SELECT * FROM "movies"
-    WHERE "id" = $1
+     WHERE "id" = ${query}
     ;`
     pool.query(queryText)
         .then((result) => {
