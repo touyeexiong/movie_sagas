@@ -12,6 +12,7 @@ class MovieItem extends Component {
             type: 'GET_DETAILS',
             payload: this.props.movie.id
         })
+        // this.props.history.push()
     }
     render () {
 

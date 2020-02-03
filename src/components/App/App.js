@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux'
 import MovieItem from '../MovieItem/MovieItem'
+import {HashRouter as Router, Route, Link } from 'react-router-dom'
+import Details from '../Details/Details'
 
 class App extends Component {
   // Renders the entire app on the DOM
@@ -24,6 +26,7 @@ class App extends Component {
     
     return (
       <>
+      <Router>
       <div className="App">
         <p>Movies</p>
         
@@ -36,8 +39,9 @@ class App extends Component {
             
           )
         })}
+        <Route exact path="/details" component={Details} />
       </ul>
-        
+        </Router>
       </>
     );
 

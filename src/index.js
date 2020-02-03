@@ -22,7 +22,9 @@ function* rootSaga() {
 function* getDetails(action) {
     try {
         console.log('what does this look like?', action.payload);
-        let response = yield axios.get(`/details?id=${action.payload}`)
+        let response = yield axios.get(`/details?id=${action.payload}`);
+        console.log('whats response', response.data);
+        
         yield put({
             type: `SET_DETAILS`,
             payload: response.data
